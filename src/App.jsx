@@ -163,12 +163,21 @@ function LoveExperience() {
       <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg animate-bounce mt-8">
         {sender} ❤️ {receiver}
       </h1>
-      <RomanticSlider />
-      <LoveLetter receiver={receiver} />
+      
+      {/* Flex container for image and message */}
+      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 w-full max-w-6xl px-4">
+        <div className="flex-shrink-0">
+          <RomanticSlider />
+        </div>
+        <div className="flex-1 w-full">
+          <LoveLetter receiver={receiver} />
+        </div>
+      </div>
+      
       <LoveTimer />
       <button
         onClick={() => window.location.reload()}
-        className="bg-gradient-to-r from-rose-500 to-pink-600 text-white px-8 py-3 rounded-2xl font-bold shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all border-2 border-white/30"
+        className="bg-gradient-to-r from-rose-500 to-pink-600 text-white px-8 py-3 rounded-2xl font-bold shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all border-2 border-white/30 mb-8"
       >
         Replay ❤️
       </button>
@@ -181,7 +190,7 @@ function LoveLetter({ receiver }) {
   const [text, setText] = useState("");
 
   useEffect(() => {
-    const message = `Dear ${receiver},\n\nYou make my world brighter,\nmy heart happier,\nand my life more beautiful.\n\nEvery moment with you feels special.\nI truly love you ❤️`;
+    const message = `Dear ${receiver},\n\nHappy Valentine's Day! ❤️\n\nYou make my world brighter,\nmy heart happier,\nand my life more beautiful.\n\nEvery moment with you feels special.\nYou are the reason I smile every day.\n\nI truly love you with all my heart! ❤️\n\nForever yours,\nYour Valentine 💕`;
 
     let i = 0;
     const t = setInterval(() => {
@@ -193,13 +202,13 @@ function LoveLetter({ receiver }) {
   }, [receiver]);
 
   return (
-    <div className="relative max-w-md mx-auto bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border-2 border-rose-300 overflow-hidden">
+    <div className="relative w-full bg-white/90 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-2xl border-2 border-rose-300">
       {/* Top gradient bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500"></div>
 
-      <pre className="relative z-10 text-gray-800 font-medium whitespace-pre-line leading-relaxed text-lg">
+      <div className="relative z-10 text-gray-800 font-medium whitespace-pre-line leading-relaxed text-base md:text-lg">
         {text}
-      </pre>
+      </div>
     </div>
   );
 }
